@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<!-- Beans to add to the current Application context definition -->
+  
+<beans>
+	
+	<bean id="ahMultipartResolver" class ="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
+	
+	
+	
+    <bean id="addresshierarchyUrlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+    	<property name="order"><value>4</value></property>
+        <property name="mappings">
+            <props>
+            	<prop key="module/addresshierarchyrwanda/unstructuredAddress.form">unstructuredAddressController</prop>
+            	<!--  <prop key="module/addresshierarchyrwanda/fileUpload.form">addressFileUploadController</prop>-->
+            	<prop key="module/addresshierarchyrwanda/patientAddress.form">addressController</prop>
+            	<prop key="module/addresshierarchyrwanda/locations.form">hierarchyController</prop>
+            	<prop key="module/addresshierarchyrwanda/ah*.form">hierarchyMultiActionController</prop>
+  				<prop key="**/addressLayout.portlet">ahAddressLayoutPortletController</prop>
+  				<!-- <prop key="admin/patients/newPatient.form">newPatientForm</prop>-->
+	    	</props>
+		</property>
+    </bean>
+	    
+	<bean parent="serviceContext">
+		<property name="moduleService">
+	   		<list>
+				<!--  <value>org.openmrs.module.addresshierarchyrwanda.UnstructuredAddressService</value> 
+				<bean class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+					<property name="transactionManager"><ref bean="transactionManager"/></property>
+					<property name="target">
+						<bean class="org.openmrs.module.addresshierarchyrwanda.impl.UnstructuredAddressServiceImpl">
+							<property name="unstructuredAddressDAO">
+								<bean class="org.openmrs.module.addresshierarchyrwanda.db.hibernate.HibernateUnstructuredAddressDAO">
+									<property name="sessionFactory"><ref bean="sessionFactory"/></property>	
+								</bean>
+							</property>	
+						</bean>
+					</property>
+					<property name="preInterceptors">
+						<list>
+							<ref bean="authorizationInterceptor"/>
+						</list>
+					</property>
+					<property name="transactionAttributeSource">
+						<bean class="org.springframework.transaction.annotation.AnnotationTransactionAttributeSource"/>
+					</property>
+				</bean>-->
+				<value>org.openmrs.module.addresshierarchyrwanda.AddressHierarchyService</value> 
+				<bean class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+					<property name="transactionManager"><ref bean="transactionManager"/></property>
+					<property name="target">
+						<bean class="org.openmrs.module.addresshierarchyrwanda.impl.AddressHierarchyServiceImpl">
+							<property name="addressHierarchyDAO">
+								<bean class="org.openmrs.module.addresshierarchyrwanda.db.hibernate.HibernateAddressHierarchyDAO">
+									<property name="sessionFactory"><ref bean="sessionFactory"/></property>	
+								</bean>
+							</property>	
+						</bean>
+					</property>
+					<property name="preInterceptors">
+						<list>
+							<ref bean="authorizationInterceptor"/>
+						</list>
+					</property>
+					<property name="transactionAttributeSource">
+						<bean class="org.springframework.transaction.annotation.AnnotationTransactionAttributeSource"/>
+					</property>
+				</bean>
+		   </list>
+		</property>
+    </bean>
+	
+    <!-- Controllers -->
+	
+	<!-- <bean id="addressFileUploadController" class="org.openmrs.module.addresshierarchyrwanda.web.controller.AddressUploadController">
+		<property name="commandClass" value="org.openmrs.module.addresshierarchyrwanda.web.FileUploadBean"/>
+		<property name="formView" value="/module/addresshierarchy/fileUpload"/>
+		<property name="successView" value="/module/addresshierarchy/fileUpload"/>
+	</bean>
+	 -->
+	<bean name="hierarchyMultiActionController" class = "org.openmrs.module.addresshierarchyrwanda.web.controller.AddressHierarchyMultiActionController">
+		
+	</bean>
+	
+	<bean id="ahAddressLayoutPortletController" class="org.openmrs.module.addresshierarchyrwanda.web.controller.AddressLayoutPortletController" >
+			
+	</bean>
+	
+	<bean id="hierarchyController" class="org.openmrs.module.addresshierarchyrwanda.web.controller.HierarchyController" >
+			
+	</bean>
+	<bean id="addressController" class="org.openmrs.module.addresshierarchyrwanda.web.controller.AddressController" >
+			
+	</bean>
+	<bean id="unstructuredAddressController" class="org.openmrs.module.addresshierarchyrwanda.web.controller.UnstructuredAddressController" >
+			
+	</bean>
+	
+	<!-- 
+	<bean id="newPatientForm" class="org.openmrs.module.addresshierarchyrwanda.web.controller.AddressLayoutPortletController">
+		<property name="sessionForm"><value>true</value></property>
+		<property name="commandName"><value>patient</value></property>
+		<property name="commandClass"><value>org.openmrs.web.controller.patient.ShortPatientModel</value></property>
+		<property name="formView"><value>/admin/patients/newPatientForm</value></property>
+		<property name="successView"><value>../../patientDashboard.form</value></property>
+	</bean>
+	 -->
+	<!-- <bean id="addressLayoutPortletController" class="org.openmrs.module.addresshierarchyrwanda.web.controller.AddressLayoutPortletController" >
+ 	        <property name="commandName"><value>addressLayout</value></property>
+ 	        <property name="commandClass"><value>org.openmrs.module.addresshierarchyrwanda.web.controller.AddressLayoutPortletController</value></property>
+ 	        <property name="formView"><value>/module/@MODULE_ID@/portlets/addressLayout</value></property>
+ 	        <property name="successView"><value>/module/@MODULE_ID@/portlets/addressLayout</value></property>
+    </bean>-->
+	<!-- /Controllers -->
+	<!--  <bean parent="addressSupport" class="org.openmrs.layout.web.address.AddressSupport">
+	 	<property name="layoutTemplates">
+			<list>
+				<ref bean="addressHierarchyTemplate" />
+			</list>
+		</property>
+	 </bean>
+	 
+	 <bean id="addressHierarchyTemplate" class="org.openmrs.layout.web.address.AddressTemplate">
+		<property name="displayName"><value>Address Hierarchy Format</value></property>
+		<property name="codeName"><value>us</value></property>
+		<property name="country"><value>Common</value></property>
+		<property name="nameMappings">
+			<props>
+				<prop key="address1">addresshierarchy.location.address1</prop>
+				<prop key="address2">addresshierarchy.location.address2</prop>
+				<prop key="country">addresshierarchy.location.country</prop>
+				<prop key="stateProvince">addresshierarchy.location.state</prop>
+				<prop key="sublocation1">addresshierarchy.location.sublocation1</prop>
+				<prop key="sublocation2">addresshierarchy.location.sublocation2</prop>
+				<prop key="sublocation3">addresshierarchy.location.sublocation3</prop>
+				<prop key="sublocation4">addresshierarchy.location.sublocation4</prop>
+				<prop key="sublocation5">addresshierarchy.location.sublocation5</prop>
+				<prop key="sublocation6">addresshierarchy.location.sublocation6</prop>
+				<prop key="postalCode">addresshierarchy.location.postalcode</prop>
+				<prop key="longitude">addresshierarchy.location.longitude</prop>
+				<prop key="latitude">addresshierarchy.location.latitude</prop>
+				
+			</props>
+		</property>
+		<property name="sizeMappings">
+			<props>
+				<prop key="address1">40</prop>
+				<prop key="address2">40</prop>
+				<prop key="country">40</prop>
+				<prop key="stateProvince">40</prop>
+				<prop key="sublocation1">40</prop>
+				<prop key="sublocation2">40</prop>
+				<prop key="sublocation3">40</prop>
+				<prop key="sublocation4">40</prop>
+				<prop key="sublocation5">40</prop>
+				<prop key="sublocation6">40</prop>
+				<prop key="postalCode">10</prop>
+				<prop key="longitude">10</prop>
+				<prop key="latitude">10</prop>
+			</props>
+		</property>
+		<property name="elementDefaults">
+			<props>
+				<prop key="country"></prop>
+			</props>
+		</property>
+		<property name="lineByLineFormat">
+			<list>
+				<value>address1</value>
+				<value>address2</value>
+				<value>country</value>
+				<value>stateProvince</value>
+				<value>subLocation1</value>
+				<value>subLocation2</value>
+				<value>subLocation3</value>
+				<value>subLocation4</value>
+				<value>subLocation5</value>
+				<value>subLocation5</value>
+				<value>postalCode</value>
+				<value>latitude</value>
+				<value>longitude</value>
+			</list>
+		</property>
+	</bean>
+-->	 
+    	
+<bean class="org.openmrs.module.addresshierarchyrwanda.util.AddressHierarchyRwandaContextAware" />
+    
+</beans>

@@ -1,0 +1,5 @@
+01,8451,Kigali Province 
+02,8451,Southern Province/Amajyepfo
+03,8451,Western Province/Uburengerazuba
+04,8451,Northern Province/Amajyaruguru
+05,8451,Eastern Province/Uburasirazuba

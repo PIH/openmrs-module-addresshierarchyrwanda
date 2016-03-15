@@ -1,6 +1,5 @@
 api/.gitignore
 api/src/main/resorces/
-api/src/test/
 omod/.gitignore
 *.class
 

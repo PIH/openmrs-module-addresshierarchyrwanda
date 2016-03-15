@@ -3,7 +3,7 @@
 
 	<groupId>org.openmrs.module</groupId>
 	<artifactId>addresshierarchyrwanda</artifactId>
-	<version>1.2.7-SNAPSHOT</version>
+	<version>1.2.7</version>
 	<packaging>pom</packaging>
 	<name>Address Hierarchy Rwanda</name>
 	<description>Parent project for Address Hierarchy Rwanda</description>
@@ -14,7 +14,8 @@
 		<connection>scm:git:https://github.com/PIH/openmrs-module-addresshierarchyrwanda/</connection>
 		<developerConnection>scm:git:https://github.com/PIH/openmrs-module-addresshierarchyrwanda/</developerConnection>
 		<url>https://github.com/PIH/openmrs-module-addresshierarchyrwanda/</url>
-	</scm>
+	  <tag>1.2.7</tag>
+  </scm>
 
 	<modules>
 		<module>api</module>

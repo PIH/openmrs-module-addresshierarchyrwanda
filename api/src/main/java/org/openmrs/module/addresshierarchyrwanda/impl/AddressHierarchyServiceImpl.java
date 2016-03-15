@@ -148,24 +148,20 @@ public class AddressHierarchyServiceImpl implements AddressHierarchyService {
 		return dao.getAddressHierarchy(addressHierarchyId);
 	}
 
-	@Override
 	public void associateCoordinatesToLeafNode(AddressHierarchy ah, double latitude, double longitude) {
 		dao.associateCoordinateToLeafNode(ah, latitude, longitude);
 	}
 
 
-	@Override
 	public void onShutdown() {
 		// TODO Auto-generated method stub
 		
 	}
 
 
-	@Override
 	public void onStartup() {
 		// TODO Auto-generated method stub
 		
 	}
-
 
 }

@@ -4,7 +4,6 @@ import java.util.Comparator;
 
 public class AddressRowComparator implements Comparator<Object[]>{
 
-	@Override
 	public int compare(Object[] row0, Object[] row1) {
 		if(row0.length<0 || row1.length<0){
 			return 0;

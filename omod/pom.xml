@@ -9,7 +9,7 @@
 	
 
 	<artifactId>addresshierarchyrwanda-omod</artifactId>
-	<packaging>omod</packaging>
+	<packaging>jar</packaging>
 	<name>Address Hierarchy Rwanda OMOD</name>
 	<description>OpenMRS module project for Address Hierarchy Rwanda</description>
 	
@@ -35,18 +35,18 @@
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.openmrs.test</groupId>
-			<artifactId>openmrs-test</artifactId>
-			<version>${openMRSVersion}</version>
-			<type>pom</type>
-			<scope>compile</scope>
+		    <groupId>org.openmrs.api</groupId>
+		    <artifactId>openmrs-api</artifactId>
+		    <version>${openMRSVersion}</version>
+		    <type>test-jar</type>
+		    <scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.openmrs.test</groupId>
-			<artifactId>openmrs-test</artifactId>
-			<version>${openMRSVersion}</version>
-			<type>pom</type>
-			<scope>test</scope>
+		    <groupId>org.openmrs.test</groupId>
+		    <artifactId>openmrs-test</artifactId>
+		    <version>${openMRSVersion}</version>
+		    <type>pom</type>
+		    <scope>test</scope>
 		</dependency>
 	</dependencies>
 

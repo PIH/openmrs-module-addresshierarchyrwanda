@@ -11,9 +11,8 @@
 	<url>http://openmrs.org</url>
 
 	<scm>
-		<connection>scm:git:https://github.com/PIH/openmrs-module-addresshierarchyrwanda/</connection>
-		<developerConnection>scm:git:https://github.com/PIH/openmrs-module-addresshierarchyrwanda/</developerConnection>
-		<url>https://github.com/PIH/openmrs-module-addresshierarchyrwanda/</url>
+		<developerConnection>scm:git:https://github.com/pih/openmrs-module-addresshierarchyrwanda</developerConnection>
+		<url>https://github.com/pih/openmrs-module-addresshierarchyrwanda/</url>
 	  <tag>HEAD</tag>
   </scm>
 
@@ -173,17 +172,17 @@
 			</snapshots>
 		</pluginRepository>
 	</pluginRepositories>
-	
+
 	<distributionManagement>
-	    <repository>
-	        <id>openmrs-repo-modules</id>
-	        <name>Modules</name>
-	        <url>http://mavenrepo.openmrs.org/nexus/content/repositories/modules/</url>
-	    </repository>
+		<repository>
+			<id>openmrs-repo-modules-pih</id>
+			<name>OpenMRS PIH Modules</name>
+			<url>https://openmrs.jfrog.io/artifactory/modules-pih/</url>
+		</repository>
 		<snapshotRepository>
-			<id>openmrs-repo-snapshots</id>
-			<name>OpenMRS Snapshots</name>
-			<url>http://mavenrepo.openmrs.org/nexus/content/repositories/snapshots</url>
+			<id>openmrs-repo-modules-pih-snapshots</id>
+			<name>OpenMRS PIH Module Snapshots</name>
+			<url>https://openmrs.jfrog.io/artifactory/modules-pih-snapshots/</url>
 		</snapshotRepository>
 	</distributionManagement>
 

@@ -159,7 +159,7 @@ public class AddressHierarchySubmissionElement implements HtmlGeneratorElement,
 						personAddress.setCityVillage(request.getParameter(context.getFieldName(addressWidget)).trim());
 					}
 					if (addressWidget.getType().equals(AddressHierarchyWidget.TYPE_CELL)) {
-						personAddress.setNeighborhoodCell(request.getParameter(context.getFieldName(addressWidget)).trim());
+						personAddress.setAddress3(request.getParameter(context.getFieldName(addressWidget)).trim());
 					}
 					if (addressWidget.getType().equals(AddressHierarchyWidget.TYPE_UMUDUGUDU)) {
 						personAddress.setAddress1(request.getParameter(context.getFieldName(addressWidget)).trim());
@@ -233,7 +233,7 @@ public class AddressHierarchySubmissionElement implements HtmlGeneratorElement,
 				}
 			}
 			if (addressWidget.getType().equals(AddressHierarchyWidget.TYPE_CELL)) {
-				if (currentAddress.getNeighborhoodCell()!=null && !currentAddress.getNeighborhoodCell().trim().equalsIgnoreCase(request.getParameter(context.getFieldName(addressWidget)).trim())) {
+				if (currentAddress.getAddress3()!=null && !currentAddress.getAddress3().trim().equalsIgnoreCase(request.getParameter(context.getFieldName(addressWidget)).trim())) {
 					equals = false;
 					break;
 				}

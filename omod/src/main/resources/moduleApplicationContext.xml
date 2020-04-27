@@ -8,7 +8,6 @@
 	<bean id="ahMultipartResolver" class ="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
 	
 	
-	
     <bean id="addresshierarchyUrlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
     	<property name="order"><value>4</value></property>
         <property name="mappings">
@@ -27,27 +26,6 @@
 	<bean parent="serviceContext">
 		<property name="moduleService">
 	   		<list>
-				<!--  <value>org.openmrs.module.addresshierarchyrwanda.UnstructuredAddressService</value> 
-				<bean class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
-					<property name="transactionManager"><ref bean="transactionManager"/></property>
-					<property name="target">
-						<bean class="org.openmrs.module.addresshierarchyrwanda.impl.UnstructuredAddressServiceImpl">
-							<property name="unstructuredAddressDAO">
-								<bean class="org.openmrs.module.addresshierarchyrwanda.db.hibernate.HibernateUnstructuredAddressDAO">
-									<property name="sessionFactory"><ref bean="sessionFactory"/></property>	
-								</bean>
-							</property>	
-						</bean>
-					</property>
-					<property name="preInterceptors">
-						<list>
-							<ref bean="authorizationInterceptor"/>
-						</list>
-					</property>
-					<property name="transactionAttributeSource">
-						<bean class="org.springframework.transaction.annotation.AnnotationTransactionAttributeSource"/>
-					</property>
-				</bean>-->
 				<value>org.openmrs.module.addresshierarchyrwanda.AddressHierarchyService</value> 
 				<bean class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
 					<property name="transactionManager"><ref bean="transactionManager"/></property>
@@ -186,7 +164,6 @@
 		</property>
 	</bean>
 -->	 
-    	
-<bean class="org.openmrs.module.addresshierarchyrwanda.util.AddressHierarchyRwandaContextAware" />
+
     
 </beans>

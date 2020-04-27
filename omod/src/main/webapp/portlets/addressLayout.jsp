@@ -15,7 +15,7 @@
 		<td>${address.stateProvince}</td>
 		<td>${address.countyDistrict}</td>
 		<td>${address.cityVillage}</td>
-		<td>${address.neighborhoodCell}</td>
+		<td>${address.address3}</td>
 		<td>${address.address1}</td>
 	</tr>
 </c:if>
@@ -64,7 +64,7 @@
 			</tr>
 			<tr>
 				<td>Cell</td>
-				<spring:bind path="neighborhoodCell">
+				<spring:bind path="address3">
 					<td><input type="text" name="${status.expression}"
 						value="${status.value}" id="nc_${addressIndex}"
 						class="cellSaveClass" /></td>

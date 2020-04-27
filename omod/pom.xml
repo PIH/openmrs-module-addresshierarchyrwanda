@@ -19,34 +19,12 @@
 			<artifactId>addresshierarchyrwanda-api</artifactId>
 			<version>${project.parent.version}</version>
 		</dependency>
-		<dependency>
-			<groupId>org.openmrs.api</groupId>
-			<artifactId>openmrs-api</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.openmrs.web</groupId>
-			<artifactId>openmrs-web</artifactId>
-		</dependency>
+
 		<dependency>
 			<groupId>org.openmrs.module</groupId>
-			<artifactId>htmlformentry-api</artifactId>
-			<version>1.9.3</version>
-			<type>jar</type>
+			<artifactId>legacyui-omod</artifactId>
+			<version>${legacyuiVersion}</version>
 			<scope>provided</scope>
-		</dependency>
-		<dependency>
-		    <groupId>org.openmrs.api</groupId>
-		    <artifactId>openmrs-api</artifactId>
-		    <version>${openMRSVersion}</version>
-		    <type>test-jar</type>
-		    <scope>test</scope>
-		</dependency>
-		<dependency>
-		    <groupId>org.openmrs.test</groupId>
-		    <artifactId>openmrs-test</artifactId>
-		    <version>${openMRSVersion}</version>
-		    <type>pom</type>
-		    <scope>test</scope>
 		</dependency>
 	</dependencies>
 

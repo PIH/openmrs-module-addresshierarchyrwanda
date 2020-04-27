@@ -53,7 +53,7 @@ public class AddressHierarchyWidget extends TextFieldWidget {
 			} else if (type.equalsIgnoreCase(TYPE_SECTOR)) {
 				setInitialValue(personAddress.getCityVillage());
 			} else if (type.equalsIgnoreCase(TYPE_CELL)) {
-				setInitialValue(personAddress.getNeighborhoodCell());
+				setInitialValue(personAddress.getAddress3());
 			} else if (type.equalsIgnoreCase(TYPE_UMUDUGUDU)) {
 				setInitialValue(personAddress.getAddress1());
 			}

@@ -12,7 +12,6 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
-import org.hibernate.type.StandardBasicTypes;
 import org.openmrs.PersonAddress;
 import org.openmrs.module.addresshierarchyrwanda.AddressHierarchy;
 import org.openmrs.module.addresshierarchyrwanda.AddressHierarchyType;
@@ -240,7 +239,7 @@ public class HibernateAddressHierarchyDAO implements AddressHierarchyDAO {
 //		.addScalar("person_address.state_province",Hibernate.STRING)
 //		.addScalar("person_address.county_district",Hibernate.STRING)
 //		.addScalar("person_address.city_village",Hibernate.STRING)
-//		.addScalar("person_address.address3",Hibernate.STRING)
+//		.addScalar("person_address.neighborhood_cell",Hibernate.STRING)
 //		.addScalar("person_address.address1",Hibernate.STRING)
 //		.addScalar("patient.patient_id",Hibernate.INTEGER);
 //		
@@ -253,8 +252,8 @@ public class HibernateAddressHierarchyDAO implements AddressHierarchyDAO {
 	
 	public List<Object[]> getLocationAddressBreakdown(int locationId){
 		SQLQuery sqlQuery = sessionFactory.getCurrentSession().createSQLQuery(AHConst.LOCATION_BREAKDOWN);
-		sqlQuery.addScalar("city_village", StandardBasicTypes.STRING)
-		.addScalar("count(*)",StandardBasicTypes.INTEGER)
+		sqlQuery.addScalar("city_village",Hibernate.STRING)
+		.addScalar("count(*)",Hibernate.INTEGER)
 		.setInteger(0, locationId);
 		
 		
@@ -269,14 +268,14 @@ public class HibernateAddressHierarchyDAO implements AddressHierarchyDAO {
 		
 		SQLQuery sqlQuery = sessionFactory.getCurrentSession().createSQLQuery(AHConst.CELL_UMU);
 		sqlQuery
-		.addScalar("patient_id",StandardBasicTypes.INTEGER)
-		.addScalar("identifier",StandardBasicTypes.STRING)
-		.addScalar("name",StandardBasicTypes.STRING)
-		.addScalar("state_province", StandardBasicTypes.STRING)
-		.addScalar("county_district", StandardBasicTypes.STRING)
-		.addScalar("city_village", StandardBasicTypes.STRING)
-		.addScalar("address3", StandardBasicTypes.STRING)
-		.addScalar("address1", StandardBasicTypes.STRING);
+		.addScalar("patient_id",Hibernate.INTEGER)
+		.addScalar("identifier",Hibernate.STRING)
+		.addScalar("name",Hibernate.STRING)
+		.addScalar("state_province", Hibernate.STRING)
+		.addScalar("county_district", Hibernate.STRING)
+		.addScalar("city_village", Hibernate.STRING)
+		.addScalar("neighborhood_cell", Hibernate.STRING)
+		.addScalar("address1", Hibernate.STRING);
 		sqlQuery.setInteger(0, locationId);
 		
 //		x.state_province, x.county_district, x.city_village,x.neighborhood_cell,x.address1
@@ -298,13 +297,13 @@ public class HibernateAddressHierarchyDAO implements AddressHierarchyDAO {
 		
 		SQLQuery sqlQuery = sessionFactory.getCurrentSession().createSQLQuery(AHConst.ALL_ADDRESSES);
 		sqlQuery
-		.addScalar("patient_id", StandardBasicTypes.INTEGER)
-		.addScalar("country",StandardBasicTypes.STRING)
-		.addScalar("person_address.state_province",StandardBasicTypes.STRING)
-		.addScalar("person_address.county_district", StandardBasicTypes.STRING)
-		.addScalar("person_address.city_village",StandardBasicTypes.STRING)
-		.addScalar("person_address.address3",StandardBasicTypes.STRING)
-		.addScalar("person_address.address1",StandardBasicTypes.STRING);
+		.addScalar("patient_id", Hibernate.INTEGER)
+		.addScalar("country",Hibernate.STRING)
+		.addScalar("person_address.state_province",Hibernate.STRING)
+		.addScalar("person_address.county_district", Hibernate.STRING)
+		.addScalar("person_address.city_village",Hibernate.STRING)
+		.addScalar("person_address.neighborhood_cell",Hibernate.STRING)
+		.addScalar("person_address.address1",Hibernate.STRING);
 		
 		
 		sqlQuery.setMaxResults(100);
@@ -327,7 +326,7 @@ public class HibernateAddressHierarchyDAO implements AddressHierarchyDAO {
 			pa.setStateProvince((String)row[2]);
 			pa.setCountyDistrict((String)row[3]);
 			pa.setCityVillage((String)row[4]);
-			pa.setAddress3((String)row[5]);
+			pa.setNeighborhoodCell((String)row[5]);
 			pa.setAddress1((String)row[6]);
 			
 			pas.add(pa);

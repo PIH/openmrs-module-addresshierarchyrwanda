@@ -12,7 +12,7 @@ function getPatientAddress(patientId) {
 			$j("#sp_" + count).val(address.stateProvince);
 			$j("#cd_" + count).val(address.countyDistrict);
 			$j("#cv_" + count).val(address.cityVillage);
-			$j("#nc_" + count).val(address.address3);
+			$j("#nc_" + count).val(address.neighborhoodCell);
 			$j("#a1_" + count).val(address.address1);
 			$j("#structured_" + count).text(address.structured);
 		});

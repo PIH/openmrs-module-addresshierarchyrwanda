@@ -45,7 +45,7 @@ public class AddressHierarchyMultiActionController extends MultiActionController
 		pa.setStateProvince(ServletRequestUtils.getStringParameter(request, "province", null).trim());
 		pa.setCountyDistrict(ServletRequestUtils.getStringParameter(request, "district", null).trim());
 		pa.setCityVillage(ServletRequestUtils.getStringParameter(request, "sector", null).trim());
-		pa.setAddress3(ServletRequestUtils.getStringParameter(request, "cell", null).trim());
+		pa.setNeighborhoodCell(ServletRequestUtils.getStringParameter(request, "cell", null).trim());
 		pa.setAddress1(ServletRequestUtils.getStringParameter(request, "umudugudu", null).trim());
 		boolean validity = new AddressValidator().isAddressStructured(pa);
 
@@ -84,7 +84,7 @@ public class AddressHierarchyMultiActionController extends MultiActionController
 		pa.setStateProvince((String) row[2]);
 		pa.setCountyDistrict((String) row[3]);
 		pa.setCityVillage((String) row[4]);
-		pa.setAddress3((String) row[5]);
+		pa.setNeighborhoodCell((String) row[5]);
 		pa.setAddress1((String) row[6]);
 
 		return pa;

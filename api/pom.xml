@@ -10,15 +10,26 @@
 	<packaging>jar</packaging>
 	<name>Address Hierarchy Rwanda API</name>
 	<description>API project for Address Hierarchy Rwanda</description>
-
-    <dependencies>
-        <dependency>
-            <groupId>org.openmrs.module</groupId>
-            <artifactId>legacyui-omod</artifactId>
-            <version>${legacyuiVersion}</version>
-            <scope>provided</scope>
-        </dependency>
-    </dependencies>
+	
+	<dependencies>
+		<dependency>
+			<groupId>org.openmrs.api</groupId>
+			<artifactId>openmrs-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.openmrs.web</groupId>
+			<artifactId>openmrs-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.openmrs.module</groupId>
+			<artifactId>htmlformentry-api</artifactId>
+		</dependency>
+	</dependencies>
+	<dependencyManagement>
+		<dependencies>
+		</dependencies>
+	</dependencyManagement>
+	
 	<build>
 		<resources>
 			<resource>

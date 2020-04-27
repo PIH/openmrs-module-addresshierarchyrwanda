@@ -30,7 +30,7 @@ public class UnstructuredAddressController extends AbstractController {
 			stateProvince
 			countyDistrict
 			cityVillage
-			address3
+			neighborhoodCell
 			address1
 		if you have a country that matches one in the db then all following must match
 	 */

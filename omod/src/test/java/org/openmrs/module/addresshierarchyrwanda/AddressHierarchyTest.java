@@ -1,21 +1,25 @@
 package org.openmrs.module.addresshierarchyrwanda;
 
-import java.util.List;
-
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openmrs.api.context.Context;
-import org.openmrs.module.addresshierarchyrwanda.AddressHierarchy;
-import org.openmrs.module.addresshierarchyrwanda.AddressHierarchyService;
 import org.openmrs.test.BaseModuleContextSensitiveTest;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+
+import java.util.List;
 
 public class AddressHierarchyTest extends BaseModuleContextSensitiveTest {
-	
+	protected final Log log = LogFactory.getLog(getClass());
 	
 	protected static final String XML_DATASET_PACKAGE_PATH = "org/openmrs/include/standardTestDataset.xml";
-	
-	
+
+	@Autowired
+	private AddressHierarchyService addressHierarchyService;
+
 //	@Override
 //	public Boolean useInMemoryDatabase() {
 //		
@@ -33,8 +37,8 @@ public class AddressHierarchyTest extends BaseModuleContextSensitiveTest {
     @Test
 	public void leafNodesShouldBeUmudugudus() throws Exception{
     	
-    	AddressHierarchyService ahs = Context.getService(AddressHierarchyService.class);
-    	Assert.assertNotNull(ahs);
+    	//AddressHierarchyService ahs = Context.getService(AddressHierarchyService.class);
+    	Assert.assertNotNull(addressHierarchyService);
 //    	AddressHierarchy ah = ahs.getNextComponent(1).get(0);
 //    	List<AddressHierarchy> children = ahs.getLeafNodes(ah);
 //    	for(AddressHierarchy leaf: children){

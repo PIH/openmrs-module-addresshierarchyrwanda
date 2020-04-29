@@ -25,8 +25,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.openmrs.api.context.Context;
-import org.openmrs.layout.web.LayoutSupport;
-import org.openmrs.layout.web.address.AddressSupport;
+import org.openmrs.layout.LayoutSupport;
+import org.openmrs.layout.address.AddressSupport;
 import org.openmrs.module.addresshierarchyrwanda.AddressHierarchyService;
 import org.openmrs.web.controller.layout.LayoutPortletController;
 import org.springframework.web.servlet.ModelAndView;
@@ -85,7 +85,7 @@ public class AddressLayoutPortletController extends LayoutPortletController {
 		log.debug("Getting address layout instance");
 		
 		return AddressSupport.getInstance();
-		
+
 	}
 	
 	

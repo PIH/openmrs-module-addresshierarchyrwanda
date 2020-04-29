@@ -75,8 +75,8 @@ public class AddressView implements View{
 				sb.append("\""+pa.getCityVillage()+"\"");
 				sb.append(",");
 				
-				sb.append("\"neighborhoodCell\":");
-				sb.append("\""+pa.getNeighborhoodCell()+"\"");
+				sb.append("\"address3\":");
+				sb.append("\""+pa.getAddress3()+"\"");
 				sb.append(",");
 				
 				sb.append("\"address1\":");

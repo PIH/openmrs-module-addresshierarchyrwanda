@@ -17,6 +17,7 @@ import java.util.Date;
 
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.openmrs.PersonAddress;
 import org.openmrs.module.htmlformentry.FormEntryContext;
@@ -24,6 +25,7 @@ import org.openmrs.module.htmlformentry.FormEntryContext.Mode;
 import org.openmrs.test.BaseModuleContextSensitiveTest;
 import org.openmrs.test.Verifies;
 
+@Ignore
 public class AddressHierarchyWidgetTest extends BaseModuleContextSensitiveTest {
 	
 	protected static final String XML_DATASET_PACKAGE_PATH = "org/openmrs/include/standardTestDataset.xml";
